@@ -1,0 +1,26 @@
+*.class
+*.log
+
+# idea
+/.idea
+/target
+*.iml
+
+.venv/
+venv/
+venv_p/
+dist/
+*.egg-info/
+build/
+
+.vscode/
+__blobstorage__/
+
+.terraform/
+terraform/.terraform.lock.hcl
+terraform/*.plan
+
+/kubeconfig
+
+### Mac ###
+.DS_Store
