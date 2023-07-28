@@ -1,11 +1,6 @@
 # Setup azurerm as a state backend
 terraform {
   backend "azurerm" {
-    # TODO move to script arguments
-    resource_group_name = "sm0723_rg_tfstate"
-    storage_account_name = "sm0723tfstate"
-    container_name = "tfstate"
-    key = "terraform.tfstate"
   }
 }
 
@@ -74,4 +69,21 @@ resource "azurerm_databricks_workspace" "bdcc" {
     region = var.BDCC_REGION
     env = var.ENV
   }
+}
+
+output "databricks_url" {
+  value = azurerm_databricks_workspace.bdcc.workspace_url
+}
+
+output "storage_account_name" {
+  value = azurerm_storage_account.bdcc.name
+}
+
+output "storage_account_access_key" {
+  sensitive = true
+  value = azurerm_storage_account.bdcc.primary_access_key
+}
+
+output "storage_account_container_name" {
+  value = azurerm_storage_data_lake_gen2_filesystem.gen2_data.name
 }
