@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 from setuptools import setup
 
-
 setup(
     name='sparksql',
     version='0.1.0',
